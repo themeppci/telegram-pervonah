@@ -88,7 +88,9 @@ def my_handler(client, message):
             )
         result = f'Sent: {random_comment}\n\nTo: {message.sender_chat.title}'
     except Exception as x:
-        result = f'Error occured:\n\n{x}'
+        result = f'Error occured:\n\n{x}\n\n\n[!] Bot stopped'
+        bot.send_message(user_chat_id, result)
+        input('Bot stopped due to error, press any key to skip and continue')
 
 
     bot.send_message(user_chat_id, result)
